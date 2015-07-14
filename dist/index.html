@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style></style></head><body>
+<h1 id="jira-worklog">Jira Worklog</h1>
+<h2 id="extract-jira-work-logs-from-a-server-">Extract jira work logs from a server.</h2>
+<p>As I was working for a client, and unable to get an overview of my work log, I decided to write a small tool that extracts hours of active tasks.</p>
+<p>The result is a small tool that gets the hours/day worked for all issues that changed within
+the last 2 weeks.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="disclaimer">Disclaimer</h3>
+<p>This was a quick &amp; dirty hack to check whether my stuff works. No guarantees whatsoever are offered.</p>
+<h3 id="license">License</h3>
+<p><a href="http://www.wtfpl.net/">WTFPL – Do What the Fuck You Want to Public License</a></p>
+<h3 id="installation">Installation</h3>
+<p>Download and unzip a compiled version <a href="download/jworklog.zip">here</a> or clone it from the github repo and build using visual studio:</p>
+<pre><code>git clone https://github.com/ToJans/jworklog.git
+</code></pre><h3 id="setup">Setup</h3>
+<p>Run jworklog.exe.</p>
+<p>The first time it will generate a config file and tell you where to find it.</p>
+<p>The idea is you edit this file, and adjust it.</p>
+<p>This is the default output: </p>
+<pre><code>    No config found; created one.
+    Please check your config file at :
+            C:\Users\Joe\AppData\Roaming\jirasettings.json
+</code></pre><p>The default file looks like this:</p>
+<pre><code>    {
+      &quot;Username&quot;: &quot;jira username&quot;,
+      &quot;Password&quot;: &quot;jira password&quot;,
+      &quot;ServerUrl&quot;: &quot;http://somejiraurl.com&quot;,
+      &quot;BaseJQL&quot;: &quot;updated &gt; -2w&quot;
+    }
+</code></pre><p>Change this with your settings, and run the app again.</p>
+<p>The <code>BaseJQL</code> can be changed to anything you&#39;d like it to be; I&#39;m not an expert on <code>JQL</code>.</p>
+<h3 id="usage">Usage</h3>
+<p>When you run the app, it will query jira issues using the <code>BaseJQL</code> , and get worklogs for all issues returned 2 times:</p>
+<ul>
+<li>First list: user, date, issue, hourslogged</li>
+<li>Second list: user, date, hourslogged</li>
+</ul>
+<p>Here is some example output:</p>
+<pre><code>Querying Jira based on settings from config file.
+Please check your config file at :
+    C:\Users\Joe\AppData\Roaming\jirasettings.json
+
+tojans    17/03/2015    CYPRES-355    8
+tojans    18/03/2015    CYPRES-355    8,5
+tojans    19/03/2015    CYPRES-355    9,75
+tojans    20/03/2015    CYPRES-355    7,75
+tojans    23/03/2015    CYPRES-355    10
+tojans    24/03/2015    CYPRES-355    10
+tojans    25/03/2015    CYPRES-355    9
+tojans    26/03/2015    CYPRES-355    8
+tojans    27/03/2015    CYPRES-355    9
+tojans    1/04/2015    CYPRES-355    9
+tojans    2/04/2015    CYPRES-355    8
+tojans    3/04/2015    CYPRES-355    8
+tojans    7/04/2015    CYPRES-355    8
+tojans    8/04/2015    CYPRES-355    10,75
+tojans    9/04/2015    CYPRES-355    10,25
+tojans    8/06/2015    CYPRES-1338    1
+tojans    9/06/2015    CYPRES-1338    7
+tojans    10/06/2015    CYPRES-1338    10
+tojans    15/06/2015    CYPRES-1338    4
+tojans    16/06/2015    CYPRES-1338    8
+tojans    18/06/2015    CYPRES-1338    1,25
+tojans    22/06/2015    CYPRES-1338    8
+tojans    23/06/2015    CYPRES-1338    0,5
+tojans    23/06/2015    CYPRES-1419    7,5
+tojans    24/06/2015    CYPRES-1419    8,5
+tojans    13/07/2015    CYPRES-1419    7
+tojans    14/07/2015    CYPRES-1419    2,5
+tojans    14/07/2015    CYPRES-1469    0,25
+tojans    14/07/2015    CYPRES-1470    3,25
+tojans    14/07/2015    CYPRES-1560    2
+tom.leathermaker    11/12/2014    CYPRES-156    1
+tom.leathermaker    7/05/2015    CYPRES-156    0,5
+tom.leathermaker    9/07/2015    CYPRES-156    7
+tom.leathermaker    10/07/2015    CYPRES-156    4
+
+tojans    17/03/2015    8
+tojans    18/03/2015    8,5
+tojans    19/03/2015    9,75
+tojans    20/03/2015    7,75
+tojans    23/03/2015    10
+tojans    24/03/2015    10
+tojans    25/03/2015    9
+tojans    26/03/2015    8
+tojans    27/03/2015    9
+tojans    1/04/2015    9
+tojans    2/04/2015    8
+tojans    3/04/2015    8
+tojans    7/04/2015    8
+tojans    8/04/2015    10,75
+tojans    9/04/2015    10,25
+tojans    8/06/2015    1
+tojans    9/06/2015    7
+tojans    10/06/2015    10
+tojans    15/06/2015    4
+tojans    16/06/2015    8
+tojans    18/06/2015    1,25
+tojans    22/06/2015    8
+tojans    23/06/2015    8
+tojans    24/06/2015    8,5
+tojans    13/07/2015    7
+tojans    14/07/2015    8
+tom.leathermaker    11/12/2014    1
+tom.leathermaker    7/05/2015    0,5
+tom.leathermaker    9/07/2015    7
+tom.leathermaker    10/07/2015    4
+</code></pre>
+</body></html>
