@@ -7,6 +7,13 @@ As I was working for a client, and unable to get an overview of my work log, I d
 The result is a small tool that gets the hours/day worked for all issues that changed within
 the last 2 weeks.
 
+# UPDATE
+
+Apparenlty it works on both windows and linux:
+
+<blockquote class="twitter-tweet" lang="nl"><p lang="en" dir="ltr"><a href="https://twitter.com/ToJans">@ToJans</a> works on Linux too PoC <a href="https://t.co/rVKki7bRFy">https://t.co/rVKki7bRFy</a></p>&mdash; Tom Van Looy (@tvlooy) <a href="https://twitter.com/tvlooy/status/621042164047474688">14 juli 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Usage
 
 ### Disclaimer
