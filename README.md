@@ -19,7 +19,7 @@ This was a quick & dirty hack to check whether my stuff works. No guarantees wha
 
 ### Installation
 
-Download and unzip a compiled version [here](download/jworklog.zip) or clone it from the github repo and build using visual studio:
+Download and unzip a compiled version [here](http://tojans.me/jworklog/download/jworklog.zip) or clone it from the github repo and build using visual studio:
 
     git clone https://github.com/ToJans/jworklog.git
 
